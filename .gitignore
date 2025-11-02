@@ -1,0 +1,74 @@
+# =====================
+# Build results
+# =====================
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+build/
+out/
+publish/
+
+# =====================
+# Visual Studio / IDE
+# =====================
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+.vscode/
+_ReSharper*/
+*.DotSettings.user
+
+# =====================
+# NuGet packages
+# =====================
+*.nupkg
+*.snupkg
+packages/
+
+# =====================
+# Unity (אם יש)
+# =====================
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+MemoryCaptures/
+*.csproj
+*.unityproj
+*.sln
+*.userprefs
+
+# =====================
+# Frontend / Web (אם יש)
+# =====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+*.cache
+*.env
+
+# =====================
+# OS generated files
+# =====================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =====================
+# Logs / Temp
+# =====================
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+TestResults/
