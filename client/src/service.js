@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // הגדרת כתובת בסיס לכל הבקשות
-axios.defaults.baseURL = 'http://localhost:5281';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;//'http://localhost:5281/';
 
 // הוספת interceptor לתפיסת שגיאות מהשרת
 axios.interceptors.response.use(
