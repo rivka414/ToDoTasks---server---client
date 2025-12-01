@@ -40,7 +40,7 @@ Build/
 Builds/
 Logs/
 MemoryCaptures/
-*.csproj
+
 *.unityproj
 *.sln
 *.userprefs
