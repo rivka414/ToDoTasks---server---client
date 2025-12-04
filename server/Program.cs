@@ -9,13 +9,17 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // הוספת שירות CORS
+var clientOriginsPolicy = "ClientOrigins";
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy(clientOriginsPolicy, policy =>
     {
-        policy.AllowAnyOrigin()  // מאפשר לכל דומיין לפנות
-              .AllowAnyHeader()  // מאפשר כל כותרת (header)
-              .AllowAnyMethod(); // מאפשר כל HTTP Method (GET, POST, PUT וכו')
+        policy.WithOrigins(
+                "https://todotasks-server-client.onrender.com",
+                "http://localhost:3000"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod();
     });
 });
 
@@ -38,7 +42,13 @@ if (app.Environment.IsDevelopment())
 }
 
 // הגדרת ה-CORS על כל ה-API
-app.UseCors("AllowAll");
+app.UseCors(clientOriginsPolicy);
+
+// מענה לבקשות OPTIONS (Preflight)
+app.MapMethods("/{*path}", new[] { "OPTIONS" }, () => Results.NoContent());
+
+// Healthcheck פשוט
+app.MapGet("/health", () => Results.Ok("OK"));
 
 // ROUTES
 app.MapGet("/", () => "API עובד!");
