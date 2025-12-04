@@ -2,7 +2,8 @@
 import axios from 'axios';
 
 // הגדרת כתובת בסיס לכל הבקשות
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;//'http://localhost:5281/';
+// שימוש בכתובת מ-ENV ואם לא קיים, נפילה לכתובת השרת בפרודקשן
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://todotasks-server.onrender.com';
 
 // הוספת interceptor לתפיסת שגיאות מהשרת
 axios.interceptors.response.use(
